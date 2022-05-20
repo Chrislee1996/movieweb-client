@@ -51,7 +51,7 @@ const IndexMovies = (props) => {
     return (
         <div>
         <div style={{ backgroundRepeat:'no-repeat', backgroundSize:'cover' ,backgroundImage: `url(${background})`}} >
-            <h3 class='text-center text-info'>Popular Movies now in theaters</h3>
+            <h3 class='text-center text-info'>Popular Movies now in theaters {contents.date}</h3>
             <div style={cardContainerLayout}>
                 {movieCards}
             </div>

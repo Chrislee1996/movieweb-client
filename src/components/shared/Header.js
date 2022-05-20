@@ -1,9 +1,14 @@
 import React, { Fragment } from 'react'
+import { DropdownButton, Dropdown } from 'react-bootstrap'
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
 import { Link } from 'react-router-dom'
 const linkStyle = {
     color: 'white',
+    textDecoration: 'none'
+}
+const categoryLinks = {
+    color: 'black',
     textDecoration: 'none'
 }
 const authenticatedOptions = (
@@ -50,10 +55,13 @@ const alwaysOptions = (
 const Header = ({ user }) => (
 	<Navbar bg='secondary' variant='dark' expand='md'>
 		<Navbar.Brand>
-            <Link to='/' style={linkStyle}>
+            <Link to='/upcoming' style={linkStyle}>
                 Movie-Web
             </Link>
         </Navbar.Brand>
+		<DropdownButton id="dropdown-basic-button-2" title="Explore" variant='outline-light'>
+			<Dropdown.Item><Link to='' style={categoryLinks}> Upcoming Movies </Link></Dropdown.Item>   
+		</DropdownButton>
 		<Navbar.Toggle aria-controls='basic-navbar-nav' />
 		<Navbar.Collapse id='basic-navbar-nav'>
 			<Nav className='ml-auto'>

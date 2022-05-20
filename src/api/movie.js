@@ -12,3 +12,15 @@ export const getMovies = (page) => {
 }
 
 
+export const getUpcoming = () => {
+    const searchUrl = 
+    `https://api.themoviedb.org/3/movie/upcoming?api_key=1e82814411d52914e0401e0ea118c4d8&language=en-US&page=1`
+    const config = {
+        method: 'get',
+        url:searchUrl
+    }
+    return axios(config)
+}
+
+
+

@@ -2,6 +2,7 @@ import React, {useState, useEffect } from 'react'
 import background from '../images/background.png'
 import {getAllTopics} from '../../api/topic'
 import { ListGroup, Row, Col} from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 
 const IndexTopic = (props) => {
     const [topics, setTopics] = useState(null)
@@ -32,11 +33,11 @@ console.log(topics)
     if (topics.length > 0) {
         topicCards = topics.map(topic => (
             <ListGroup.Item key={topic.id} style={{ width: '30%', border:"solid 1px", zIndex:'5 !important'}} className="m-2 bg-dark text-info"  >
-                <Row style={{ alignItems: 'center', color:'white' }}>
-                <Col> Title: {topic.header}</Col>
-                adf
+                <Row style={{ alignItems: 'center', color:'white' }}> 
+                <Col> <Link to ={`/topics/${topic._id}`}> <h4>  {topic.header} </h4></Link> </Col>
                 </Row>
                 <small><Col>Posted By: {!topic.owner ? null : topic.owner.email}</Col> </small>
+                <small>comments</small>
             </ListGroup.Item>
         ))
     }
