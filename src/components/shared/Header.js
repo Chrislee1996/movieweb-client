@@ -39,6 +39,11 @@ const alwaysOptions = (
 				Home
 			</Link>
 		</Nav.Link>
+		<Nav.Link>
+			<Link to='/topics/all' style={linkStyle}>
+				Dicussion Fourm
+			</Link>
+		</Nav.Link>
 	</>
 )
 

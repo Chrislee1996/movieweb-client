@@ -13,6 +13,9 @@ import SignIn from './components/auth/SignIn'
 import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
 
+//topics
+import IndexTopic from './components/topics/IndexTopic'
+
 const App = () => {
 
   const [user, setUser] = useState(null)
@@ -68,6 +71,14 @@ const App = () => {
                 <ChangePassword msgAlert={msgAlert} user={user} />
               </RequireAuth>}
           />
+
+
+			<Route
+				path='/topics/all'
+				element={
+					<IndexTopic msgAlert={msgAlert} user={user} />}
+			/>
+
 				</Routes>
 				{msgAlerts.map((msgAlert) => (
 					<AutoDismissAlert

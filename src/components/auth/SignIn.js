@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-
+import {ArrowRight} from "react-bootstrap-icons"
 import { signIn } from '../../api/auth'
 import messages from '../shared/AutoDismissAlert/messages'
 
@@ -55,38 +55,42 @@ const SignIn = (props) => {
 	}
 
     return (
-        <div className='row'>
-            <div className='col-sm-10 col-md-8 mx-auto mt-5'>
-                <h3>Sign In</h3>
-                <Form onSubmit={onSignIn}>
-                    <Form.Group controlId='email'>
-                        <Form.Label>Email address</Form.Label>
-                        <Form.Control
-                            required
-                            type='email'
-                            name='email'
-                            value={email}
-                            placeholder='Enter email'
-                            onChange={e => setEmail(e.target.value)}
-                        />
-                    </Form.Group>
-                    <Form.Group controlId='password'>
-                        <Form.Label>Password</Form.Label>
-                        <Form.Control
-                            required
-                            name='password'
-                            value={password}
-                            type='password'
-                            placeholder='Password'
-                            onChange={e => setPassword(e.target.value)}
-                        />
-                    </Form.Group>
-                    <Button variant='primary' type='submit'>
-                        Submit
-                    </Button>
-                </Form>
+        <div className='bg-dark text-info'>
+            <div className='signinBox'>
+                <div className='row '>
+                    <div className='col-sm-10 col-md-8 mx-auto mt-5' >
+                            <h3>Sign In</h3>
+                            <Form onSubmit={onSignIn}>
+                                <Form.Group controlId='email'>
+                                    <Form.Label>Email address</Form.Label>
+                                    <Form.Control
+                                        required
+                                        type='email'
+                                        name='email'
+                                        value={email}
+                                        placeholder='Enter email'
+                                        onChange={e => setEmail(e.target.value)}
+                                    />
+                                </Form.Group>
+                                <Form.Group controlId='password' >
+                                    <Form.Label className ='passwordSign'>Password</Form.Label>
+                                    <Form.Control
+                                        required
+                                        name='password'
+                                        value={password}
+                                        type='password'
+                                        placeholder='Password'
+                                        onChange={e => setPassword(e.target.value)}
+                                    />
+                                </Form.Group>
+                                <Button variant='outline-primary' type='submit' className='signButton'>
+                                    Submit <ArrowRight></ArrowRight>
+                                </Button>
+                            </Form>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
     )
 }
 

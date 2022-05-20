@@ -2,6 +2,7 @@ import React, {useState, useEffect } from 'react'
 import { getMovies } from '../../api/movie'
 import { Card,Col,Row, ListGroup} from 'react-bootstrap'
 import { Link } from 'react-router-dom'
+import background from '../images/background.png'
 
 const cardContainerLayout = {
     display: 'flex',
@@ -48,12 +49,14 @@ const IndexMovies = (props) => {
 
 
     return (
-        <>
-            <h3 class='text-center text-info'>Movies</h3>
+        <div>
+        <div style={{ backgroundRepeat:'no-repeat', backgroundSize:'cover' ,backgroundImage: `url(${background})`}} >
+            <h3 class='text-center text-info'>Popular Movies now in theaters</h3>
             <div style={cardContainerLayout}>
                 {movieCards}
             </div>
-        </>
+        </div>
+        </div>
     )
 }
 

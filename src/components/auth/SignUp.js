@@ -1,7 +1,7 @@
 // import React, { Component } from 'react'
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-
+import {ArrowRight} from "react-bootstrap-icons"
 import { signUp, signIn } from '../../api/auth'
 import messages from '../shared/AutoDismissAlert/messages'
 
@@ -56,6 +56,8 @@ const SignUp = (props) => {
 
 
     return (
+        <div className='bg-dark text-info'>
+        <div className='signupBox'>
         <div className='row'>
             <div className='col-sm-10 col-md-8 mx-auto mt-5'>
                 <h3>Sign Up</h3>
@@ -93,11 +95,13 @@ const SignUp = (props) => {
                             onChange={e => setPasswordConfirmation(e.target.value)}
                         />
                     </Form.Group>
-                    <Button variant='primary' type='submit'>
-                        Submit
+                    <Button variant='outline-primary' type='submit' className ='signButton'>
+                        Submit <ArrowRight></ArrowRight>
                     </Button>
                 </Form>
             </div>
+        </div>
+        </div>
         </div>
     )
 
