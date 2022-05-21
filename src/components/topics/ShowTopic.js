@@ -1,8 +1,9 @@
 import React, {useState, useEffect } from 'react'
-import background from '../images/background.png'
 import {showCurrentTopic} from '../../api/topic'
 import { Spinner,Container,Card, Button} from 'react-bootstrap'
 import {useParams, useNavigate} from 'react-router-dom'
+import topic from '../images/topic.png'
+
 
 const ShowTopic = (props) => {
     const [updated, setUpdated] = useState(false)
@@ -31,14 +32,14 @@ const ShowTopic = (props) => {
     }
 
     return (
-        <div style={{backgroundImage: `url(${background})`}}>
-            <Container>
-                <Card.Body >
+        <div style={{ backgroundRepeat:'no-repeat', backgroundSize:'cover',height:'100vh', backgroundColor: 'black' }}>
+            <Container >
+                <Card.Body  >
                     {/* {
                     user && (product.owner == user._id)
                     ?
                     <>
-                        <Button onClick={() => setModalOpen(true)} className="m-2" variant="warning">
+                        <Button onClick={() => setModalOpen(true)}   className="m-2" variant="warning">
                             Edit Product
                         </Button>
                         <Button onClick={() => removeTheProduct()} className="m-2" variant="danger">
@@ -48,9 +49,13 @@ const ShowTopic = (props) => {
                     :
                     null
                     }                     */}
+                    <Card.Title>
+                    <h3 className='text-info'><b>{topic.header}</b></h3>
+                    </Card.Title>
+                    <Card.Text>
+                    <h4 className='text-info'>{topic.body}</h4>
+                    </Card.Text>
                 </Card.Body>
-                    <h3><b>{topic.header}</b></h3>
-                    <p>{topic.body}</p>
             </Container>
         </div>
     )

@@ -1,5 +1,5 @@
 import React, {useState, useEffect } from 'react'
-import background from '../images/background.png'
+import topic from '../images/topic.png'
 import {getAllTopics} from '../../api/topic'
 import { ListGroup, Row, Col} from 'react-bootstrap'
 import { Link } from 'react-router-dom'
@@ -44,7 +44,7 @@ console.log(topics)
     }
 
     return (
-        <div style={{ backgroundRepeat:'no-repeat', backgroundSize:'cover', backgroundImage: `url(${background})`}} >
+        <div style={{ backgroundRepeat:'no-repeat', backgroundSize:'cover',height:'100vh', backgroundImage: `url(${topic})`}} >
             <h3 class='text-center text-info'>Discussion Fourm</h3>
                 <div style={cardContainerLayout}>
                     {topicCards}
