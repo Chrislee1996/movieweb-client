@@ -27,7 +27,8 @@ const CreateTopic = (props) => {
         e.preventDefault()
         createTopic(user,topic)
             .then(res=> 
-                {navigate(`/topics/${res.data.topic.id}`)})
+                {   console.log(res.data,'test')
+                    navigate(`/topics/${res.data.topic._id}`)})
             .then(()=> {
                     msgAlert({
                         heading:'Post Created!',
