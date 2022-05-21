@@ -16,6 +16,7 @@ import ChangePassword from './components/auth/ChangePassword'
 //topics
 import IndexTopic from './components/topics/IndexTopic'
 import ShowTopic from './components/topics/ShowTopic'
+import CreateTopic from './components/topics/CreateTopic'
 
 
 const App = () => {
@@ -85,6 +86,14 @@ const App = () => {
 				element={
 					<ShowTopic msgAlert={msgAlert} user={user} />}
 			/>
+
+			<Route
+				path='/addTopic'
+				element={
+				<RequireAuth user={user}>
+					<CreateTopic msgAlert={msgAlert} user={user} />
+				</RequireAuth>}
+			/>	
 
 				</Routes>
 				{msgAlerts.map((msgAlert) => (

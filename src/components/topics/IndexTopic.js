@@ -3,7 +3,10 @@ import topic from '../images/topic.png'
 import {getAllTopics} from '../../api/topic'
 import { ListGroup, Row, Col} from 'react-bootstrap'
 import { Link } from 'react-router-dom'
-
+const linkStyle = {
+    color: 'white',
+    textDecoration: 'none',
+}
 
 const IndexTopic = (props) => {
     const [topics, setTopics] = useState(null)
