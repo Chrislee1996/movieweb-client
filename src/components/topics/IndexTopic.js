@@ -4,6 +4,7 @@ import {getAllTopics} from '../../api/topic'
 import { ListGroup, Row, Col} from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
+
 const IndexTopic = (props) => {
     const [topics, setTopics] = useState(null)
     

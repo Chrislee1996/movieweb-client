@@ -15,6 +15,8 @@ import ChangePassword from './components/auth/ChangePassword'
 
 //topics
 import IndexTopic from './components/topics/IndexTopic'
+import ShowTopic from './components/topics/ShowTopic'
+
 
 const App = () => {
 
@@ -77,6 +79,11 @@ const App = () => {
 				path='/topics/all'
 				element={
 					<IndexTopic msgAlert={msgAlert} user={user} />}
+			/>
+			<Route
+				path='/topics/:id'
+				element={
+					<ShowTopic msgAlert={msgAlert} user={user} />}
 			/>
 
 				</Routes>

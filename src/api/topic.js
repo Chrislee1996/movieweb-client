@@ -6,7 +6,6 @@ import axios from 'axios'
 
 export const getAllTopics = (all) => {
     return axios(`${apiUrl}/topics/all`)
-    console.log(all)
 }
 
 export const showCurrentTopic = (topicId) => {
