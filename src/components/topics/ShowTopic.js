@@ -1,5 +1,5 @@
 import React, {useState, useEffect } from 'react'
-import {showCurrentTopic} from '../../api/topic'
+import {showCurrentTopic, removeTopic} from '../../api/topic'
 import { Spinner,Container,Card, Button} from 'react-bootstrap'
 import {useParams, useNavigate} from 'react-router-dom'
 import topic from '../images/topic.png'
@@ -20,6 +20,26 @@ const ShowTopic = (props) => {
             .catch(console.error)
     },[updated])
 
+    const deleteTopic = () => {
+        removeTopic (user, topic._id)
+        .then(() => {
+            msgAlert({
+                heading: 'Topic Removed!',
+                message: 'Topic Successfully deleted',
+                variant: 'success',
+            })
+        })
+            .then(()=> {navigate('/topics/all')})
+            .catch(() => {
+                msgAlert({
+                    heading: 'Something Went Wrong',
+                    message: 'Unable to delete',
+                    variant: 'danger',
+                })
+            })
+    }
+    
+
     if(!topic) {
         return (
             <Container>
@@ -35,20 +55,20 @@ const ShowTopic = (props) => {
         <div style={{ backgroundRepeat:'no-repeat', backgroundSize:'cover',height:'100vh', backgroundColor: 'black' }}>
             <Container >
                 <Card.Body  >
-                    {/* {
-                    user && (product.owner == user._id)
+                    {
+                    user && (topic.owner._id == user._id)
                     ?
                     <>
-                        <Button onClick={() => setModalOpen(true)}   className="m-2" variant="warning">
+                        {/* <Button onClick={() => setModalOpen(true)}   className="m-2" variant="warning">
                             Edit Product
-                        </Button>
-                        <Button onClick={() => removeTheProduct()} className="m-2" variant="danger">
-                            Delete Product
+                        </Button> */}
+                        <Button onClick={() => deleteTopic()} className="m-2" variant="danger">
+                            Delete Topic
                         </Button>
                     </>
                     :
                     null
-                    }                     */}
+                    }                    
                     <Card.Title>
                     <h3 className='text-info'><b>{topic.header}</b></h3>
                     </Card.Title>
