@@ -1,8 +1,9 @@
 import React, {useState, useEffect } from 'react'
-import {showCurrentTopic, removeTopic} from '../../api/topic'
+import {showCurrentTopic, removeTopic, updateTopic} from '../../api/topic'
 import { Spinner,Container,Card, Button} from 'react-bootstrap'
 import {useParams, useNavigate} from 'react-router-dom'
 import topic from '../images/topic.png'
+import EditTopic from './EditTopic'
 
 
 const ShowTopic = (props) => {
@@ -11,6 +12,7 @@ const ShowTopic = (props) => {
     const {id} = useParams()
     const navigate = useNavigate()
     const {user,msgAlert, triggerRefresh} = props
+    const [modalOpen, setModalOpen] = useState(false)
 
     useEffect(() => {
         showCurrentTopic(id)
@@ -59,9 +61,9 @@ const ShowTopic = (props) => {
                     user && (topic.owner._id == user._id)
                     ?
                     <>
-                        {/* <Button onClick={() => setModalOpen(true)}   className="m-2" variant="warning">
+                        <Button onClick={() => setModalOpen(true)}   className="m-2" variant="warning">
                             Edit Product
-                        </Button> */}
+                        </Button>
                         <Button onClick={() => deleteTopic()} className="m-2" variant="danger">
                             Delete Topic
                         </Button>
@@ -77,6 +79,14 @@ const ShowTopic = (props) => {
                     </Card.Text>
                 </Card.Body>
             </Container>
+            <EditTopic 
+                topic={topic}
+                show={modalOpen}
+                user={user}
+                triggerRefresh={() => setUpdated(prev => !prev)}
+                updateTopic={updateTopic}
+                handleClose={() => setModalOpen(false)}
+            />
         </div>
     )
 

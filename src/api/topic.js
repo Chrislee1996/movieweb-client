@@ -27,8 +27,9 @@ export const createTopic = (user, newTopic) => {
 
 //PATCH -> update function
 export const updateTopic = (user, updatedTopic) => {
+    console.log(updatedTopic,'topic')
     return axios({
-        url:`${apiUrl}/topics/${updatedTopic.id}`,
+        url:`${apiUrl}/topics/${updatedTopic._id}`,
         method:'PATCH',
         headers:{
             Authorization: `Token token=${user.token}`
