@@ -2,7 +2,7 @@ import React, {useState, useEffect } from 'react'
 import {showCurrentTopic, removeTopic, updateTopic} from '../../api/topic'
 import { Spinner,Container,Card, Button} from 'react-bootstrap'
 import {useParams, useNavigate} from 'react-router-dom'
-import topic from '../images/topic.png'
+import topics from '../images/topics.png'
 import EditTopic from './EditTopic'
 
 
@@ -52,31 +52,31 @@ const ShowTopic = (props) => {
 
         )
     }
-
+    // {{ backgroundRepeat:'no-repeat', backgroundSize:'cover',height:'100vh', backgroundColor: 'black' }}
     return (
-        <div style={{ backgroundRepeat:'no-repeat', backgroundSize:'cover',height:'100vh', backgroundColor: 'black' }}>
+        <div style={{ backgroundRepeat:'no-repeat', backgroundSize:'cover',height:'100vh',backgroundImage: `url(${topics})`}}>
             <Container >
-                <Card.Body  >
-                    {
-                    user && (topic.owner._id == user._id)
-                    ?
-                    <>
-                        <Button onClick={() => setModalOpen(true)}   className="m-2" variant="warning">
-                            Edit Product
-                        </Button>
-                        <Button onClick={() => deleteTopic()} className="m-2" variant="danger">
-                            Delete Topic
-                        </Button>
-                    </>
-                    :
-                    null
-                    }                    
+                <Card.Body  >                 
                     <Card.Title>
                     <h3 className='text-info'><b>{topic.header}</b></h3>
                     </Card.Title>
                     <Card.Text>
                     <h4 className='text-info'>{topic.body}</h4>
                     </Card.Text>
+                    {
+                    user && (topic.owner._id == user._id)
+                    ?
+                    <>
+                        <Button onClick={() => setModalOpen(true)}   className="m-2" variant="outline-warning" size='sm'>
+                            Edit Product
+                        </Button>
+                        <Button onClick={() => deleteTopic()} className="m-2" variant="outline-danger" size="sm">
+                            Delete Topic
+                        </Button>
+                    </>
+                    :
+                    null
+                    }   
                 </Card.Body>
             </Container>
             <EditTopic 
