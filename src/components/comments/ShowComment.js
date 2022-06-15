@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import { Card, Button, Container } from 'react-bootstrap'
 import { removeComment } from '../../api/comments'
-// import GiveReply from '../replys/GiveReply'
-// import ShowReply from '../replys/GiveReply'
+import GiveReply from '../replies/GiveReply'
+import ShowReply from '../replies/ShowReply'
 import EditCommentModal from './EditCommentModal'
 
 
 
 const ShowComment = (props) => {
     // most of these are simply to pass to edit modal
-    const {comment, user, triggerRefresh, msgAlert, topic, handleClose} = props //add reply
-    const [commentModalOpen, setCommentModalOpen] = useState(false)
+    const {comment, user, triggerRefresh, msgAlert, topic, handleClose, reply} = props //add reply
+    const [replyModalOpen, setReplyModalOpen] = useState(false)
     const [showEditModal, setShowEditModal] = useState(false)
     const [updated, setUpdated] = useState(false)
     const [hidden, setHidden] = useState(false)
@@ -32,23 +32,24 @@ const ShowComment = (props) => {
 
 
 
-    // let comments    
+    let replies    
 
-    // if(review){
-    //     if(review.comments.length > 0){
-    //         comments = review.comments.map(comment=> (
-    //             <ShowComment key={comment._id} updated={updated} comment={comment} review={review} user={user} course={course}
-    //             triggerRefresh={triggerRefresh}
-    //             />  
-    //         ))
-    //     }
-    // }  
+    console.log(comment,'asd')
+    if(comment){
+        if(comment.reply.length > 0){
+            replies = comment.reply.map(reply => (
+                <ShowReply key={reply._id} updated={updated} reply={reply} comment={comment} user={user} topic={topic}
+                triggerRefresh={triggerRefresh}
+                />  
+            ))
+        }
+    }  
 
 
     return (
         <>
-            <Card className="m-2">
-                <Card.Body className="m-2 bg-dark text-info">
+            <Card className="m-2 bg-dark text-info">
+                <Card.Body >
                         <small> Posted By: {!topic.owner ? null : topic.owner.email} </small>
                         <h4> {comment.note}<br/></h4>
 
@@ -67,13 +68,13 @@ const ShowComment = (props) => {
                             null
                         }<br/>
 
-                        {/* {
-                            hidden?<p>{replys}</p>: null
-                        } */}
-                        {/* <Button onClick ={()=>setHidden(!hidden)} variant="outline-light" size='sm'> Show {review.comments.length} Comments<ArrowDown></ArrowDown> </Button> */}
+                        {
+                            hidden?<p>{replies}</p>: null
+                        } 
+                        <Button onClick ={()=>setHidden(!hidden)} variant="outline-light" size='sm'> Show {comment.reply.length} Reply </Button>
 
 
-                        {/* <Button className="comment" onClick={()=> setCommentModalOpen(true)} variant="outline-primary" size='sm'> Comment on Review Above <Reply></Reply></Button> */}
+                        <Button className="reply" onClick={()=> setReplyModalOpen(true)} variant="outline-primary" size='sm'>Reply Above</Button>
         </Card.Body>
     </Card>
     <EditCommentModal 
@@ -85,15 +86,15 @@ const ShowComment = (props) => {
                 msgAlert={msgAlert}
                 triggerRefresh={triggerRefresh}
     />
-    {/* <GiveComment
+    {<GiveReply
         user={user}
-        review={review}
-        show = {commentModalOpen}
-        course={course}
         comment={comment}
-        handleClose={()=> setCommentModalOpen(false)}
+        show = {replyModalOpen}
+        topic={topic}
+        reply={reply}
+        handleClose={()=> setReplyModalOpen(false)}
         triggerRefresh={triggerRefresh}
-    /> */}
+    /> }
 
     </>
     )

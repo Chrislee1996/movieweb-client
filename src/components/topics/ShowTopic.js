@@ -55,9 +55,9 @@ const ShowTopic = (props) => {
         )
     }
 
-    // let replys
+    let replies
     let comments    
-
+console.log(replies,'reply')
     if(topic){
         if(topic.comments.length>0){
             comments = topic.comments.map(comment=> (

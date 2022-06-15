@@ -41,7 +41,6 @@ console.log(topics)
                 <Col> <Link to ={`/topics/${topic._id}`}> <h4>  {topic.header} </h4></Link> </Col>
                 </Row>
                 <small><Col>Posted By: {!topic.owner ? null : topic.owner.email}</Col> </small>
-                <small>comments</small>
             </ListGroup.Item>
         ))
     }

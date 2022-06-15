@@ -109,14 +109,14 @@ const App = () => {
 				}
 			/>
 
-			 {/* <Route
-				path="/comments/:courseId/:reviewId/:reviewId"
+			 <Route
+				path="/replies/:topicId/:commentId"
 				element={
 					<RequireAuth user={user}>
-						<ShowCourse msgAlert={msgAlert} user={user}/>
+						<ShowTopic msgAlert={msgAlert} user={user}/>
 					</RequireAuth>
 				}
-			/>  */}
+			/> 
 
 			<Route
 				path="/comments/:id/"
