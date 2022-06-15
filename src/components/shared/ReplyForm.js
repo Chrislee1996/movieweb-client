@@ -9,7 +9,7 @@ const ReplyForm = (props) => {
         <Container className="justify-content-center">
             <h3>{heading}</h3>
             <Form onSubmit={handleSubmit}>
-                <Form.Label>Reply</Form.Label>
+                <Form.Label>Reply to comment</Form.Label>
                 <Form.Control as='textarea'
                     placeholder="Reply to Comment"
                     value={reply.note}

@@ -36,8 +36,8 @@ console.log(topics)
 
     if (topics.length > 0) {
         topicCards = topics.map(topic => (
-            <ListGroup.Item key={topic.id} style={{ width: '30%', border:"solid 1px", zIndex:'5 !important'}} className="m-2 bg-dark text-info"  >
-                <Row style={{ alignItems: 'center', color:'white' }}> 
+            <ListGroup.Item key={topic.id} style={{ width: '30%', border:"solid 1px", zIndex:'5 !important', width:'1000px'}} className="m-2 bg-dark text-info"  >
+                <Row style={{ alignItems: 'center', color:'white'}}> 
                 <Col> <Link to ={`/topics/${topic._id}`}> <h4>  {topic.header} </h4></Link> </Col>
                 </Row>
                 <small><Col>Posted By: {!topic.owner ? null : topic.owner.email}</Col> </small>

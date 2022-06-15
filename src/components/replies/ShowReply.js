@@ -37,12 +37,13 @@ const ShowReply = (props) => {
             ))
         }
     }  
-
+console.log(topic,'adf')
     return (
         <>
             <Card className="m-2">
                 <Card.Body className='bg-dark'>
-                        <p>Reply:</p>
+                <small> Posted By: {!topic.owner ? null : topic.owner.email} </small>
+
                         <p>{reply.note}<br/></p>
                         {
                             user && (user._id === reply.owner)

@@ -75,6 +75,8 @@ const ShowTopic = (props) => {
             <Container >
                 <Card.Body  >                 
                     <Card.Title>
+                <small className='text-info'>Posted By: {!topic.owner ? null : topic.owner.email}</small>
+
                     <h3 className='text-info'><b>{topic.header}</b></h3>
                     </Card.Title>
                     <Card.Text>
@@ -85,7 +87,7 @@ const ShowTopic = (props) => {
                     ?
                     <>
                         <Button onClick={() => setModalOpen(true)}   className="m-2" variant="outline-warning" size='sm'>
-                            Edit Product
+                            Edit Topic
                         </Button>
                         <Button onClick={() => deleteTopic()} className="m-2" variant="outline-danger" size="sm">
                             Delete Topic
