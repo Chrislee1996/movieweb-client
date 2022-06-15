@@ -48,8 +48,9 @@ const ShowComment = (props) => {
     return (
         <>
             <Card className="m-2">
-                <Card.Body className='comments'>
-                        <h4>Reply: {comment.note}<br/></h4>
+                <Card.Body className="m-2 bg-dark text-info">
+                        <small> Posted By: {!topic.owner ? null : topic.owner.email} </small>
+                        <h4> {comment.note}<br/></h4>
 
                         {
                             user && (user._id === comment.owner)

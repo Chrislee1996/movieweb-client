@@ -97,7 +97,7 @@ const ShowTopic = (props) => {
 
 
 
-                        <Button className="commentB" onClick={()=> setCommentModalOpen(true)} variant="outline-primary"> Comment</Button>
+                        <Button className="commentB" onClick={()=> setCommentModalOpen(true)} variant="outline-primary"> Comment Below</Button>
                         <h3 className class='text-primary'>Comments:</h3> 
                         <p>{comments}</p>
 
