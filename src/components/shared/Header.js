@@ -70,7 +70,7 @@ const Header = ({ user }) => (
             </Link>
         </Navbar.Brand>
 		<DropdownButton id="dropdown-basic-button-2" title="Explore" variant='outline-light'>
-			<Dropdown.Item><Link to='' style={categoryLinks}> Upcoming Movies </Link></Dropdown.Item>   
+			<Dropdown.Item><Link to='' style={categoryLinks}> Currently Playing </Link></Dropdown.Item>   
 		</DropdownButton>
 		<Navbar.Toggle aria-controls='basic-navbar-nav' />
 		<Navbar.Collapse id='basic-navbar-nav'>

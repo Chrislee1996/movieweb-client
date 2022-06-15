@@ -19,8 +19,13 @@ import ShowTopic from './components/topics/ShowTopic'
 import CreateTopic from './components/topics/CreateTopic'
 
 
+//movies
+import IndexUpcomingMovies from './components/movies/IndexUpcomingMovies'
+
 //comments
 import GiveCommentModal from './components/comments/GiveComment'
+
+
 
 const App = () => {
 
@@ -78,6 +83,12 @@ const App = () => {
               </RequireAuth>}
           />
 
+{/* movies */}
+			<Route
+				path='/popular'
+				element={
+					<IndexUpcomingMovies msgAlert={msgAlert} user={user} />}
+			/>
 
 			<Route
 				path='/topics/all'
