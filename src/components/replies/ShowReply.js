@@ -9,17 +9,17 @@ const ShowReply = (props) => {
     const [updated, setUpdated] = useState(false)
     
     const destroyReply = () => {
-        removeReply(user, topic._id , reply._id, comment._id)
+        removeReply(user, topic._id , comment._id,  reply._id)
         .then(() => triggerRefresh())
         // if there is an error, we'll send an error message
-        // .catch(() => {
-        //     msgAlert({
-        //         heading: 'Something Went Wrong',
-        //         message: 'Unable to remove comment',
-        //         variant: 'danger',
-        //     })
-        // })
-        .catch(console.error)
+        .catch(() => {
+            msgAlert({
+                heading: 'Something Went Wrong',
+                message: 'Unable to remove comment',
+                variant: 'danger',
+            })
+        })
+        // .catch(console.error)
 
     }
 
