@@ -26,6 +26,7 @@ const ShowReply = (props) => {
  
 
     let replies    
+    console.log(comment,'comment test')
 
     if(comment){
         if(comment.reply.length > 0){

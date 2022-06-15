@@ -32,14 +32,14 @@ const GiveReplyModal = (props) => {
             .then(() => triggerRefresh())
             .then(() => handleClose())
             // if there is an error, we'll send an error message
-            .catch(() => {
-                msgAlert({
-                    heading: 'Something Went Wrong',
-                    message: 'Unable to add comment',
-                    variant: 'danger',
-                })
-            })
-            // .catch(console.error)
+            // .catch(() => {
+            //     msgAlert({
+            //         heading: 'Something Went Wrong',
+            //         message: 'Unable to add comment',
+            //         variant: 'danger',
+            //     })
+            // })
+            .catch(console.error)
 
     }
 
@@ -57,7 +57,7 @@ const GiveReplyModal = (props) => {
             <Modal.Header closeButton></Modal.Header>
             <Modal.Body>
                 <ReplyForm
-                    reply={ReplyForm}
+                    reply={reply}
                     handleChange={handleChange}
                     handleSubmit={handleSubmit}
                     heading="Leave a Reply"

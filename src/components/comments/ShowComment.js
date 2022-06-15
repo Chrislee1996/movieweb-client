@@ -9,7 +9,7 @@ import EditCommentModal from './EditCommentModal'
 
 const ShowComment = (props) => {
     // most of these are simply to pass to edit modal
-    const {comment, user, triggerRefresh, msgAlert, topic, handleClose, reply} = props //add reply
+    const {comment, user, triggerRefresh, msgAlert, topic, handleClose, reply} = props 
     const [replyModalOpen, setReplyModalOpen] = useState(false)
     const [showEditModal, setShowEditModal] = useState(false)
     const [updated, setUpdated] = useState(false)
@@ -34,7 +34,6 @@ const ShowComment = (props) => {
 
     let replies    
 
-    console.log(comment,'asd')
     if(comment){
         if(comment.reply.length > 0){
             replies = comment.reply.map(reply => (
@@ -44,7 +43,7 @@ const ShowComment = (props) => {
             ))
         }
     }  
-
+console.log(replies)
 
     return (
         <>
@@ -67,7 +66,6 @@ const ShowComment = (props) => {
                             :
                             null
                         }<br/>
-
                         {
                             hidden?<p>{replies}</p>: null
                         } 

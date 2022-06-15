@@ -13,7 +13,7 @@ const ReplyForm = (props) => {
                 <Form.Control as='textarea'
                     placeholder="Reply to Comment"
                     value={reply.note}
-                    name='reply'
+                    name='note'
                     onChange={handleChange}
                 />
                 <Button type='submit'>Submit</Button>

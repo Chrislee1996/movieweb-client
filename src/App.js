@@ -110,7 +110,7 @@ const App = () => {
 			/>
 
 			 <Route
-				path="/replies/:topicId/:commentId"
+				path="/replies/:topicId/:commentId/:commentId"
 				element={
 					<RequireAuth user={user}>
 						<ShowTopic msgAlert={msgAlert} user={user}/>
