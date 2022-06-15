@@ -50,7 +50,7 @@ const EditCommentModal = (props) => {
             <Modal.Header closeButton></Modal.Header>
             <Modal.Body>
                 <CommentForm
-                    topic={topic}
+                    comment={comment}
                     handleChange={handleChange}
                     handleSubmit={handleSubmit}
                     heading="Comment"

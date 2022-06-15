@@ -11,7 +11,7 @@ const CommentForm = (props) => {
             <Form onSubmit={handleSubmit}>
                 <Form.Label>Leave a Comment</Form.Label>
                 <Form.Control as='textarea'
-                    placeholder="Leave a Commnt"
+                    placeholder="Leave a Comment"
                     value={comment.note}
                     name='note'
                     onChange={handleChange}
