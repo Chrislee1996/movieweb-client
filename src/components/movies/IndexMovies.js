@@ -10,6 +10,7 @@ const cardContainerLayout = {
     flexFlow: 'row wrap'
 }
 
+
 const IndexMovies = (props) => {
     const [contents, setContent] = useState([])
     // const [numOfPages, setNumofPages] = useState()

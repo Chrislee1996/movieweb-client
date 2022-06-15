@@ -1,5 +1,6 @@
 import apiUrl from '../apiConfig'
 import axios from 'axios'
+import env from 'react-dotenv'
 
 export const getMovies = (page) => {
     const searchUrl = 

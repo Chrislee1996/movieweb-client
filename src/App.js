@@ -19,6 +19,9 @@ import ShowTopic from './components/topics/ShowTopic'
 import CreateTopic from './components/topics/CreateTopic'
 
 
+//comments
+import GiveCommentModal from './components/comments/GiveComment'
+
 const App = () => {
 
   const [user, setUser] = useState(null)
@@ -95,6 +98,34 @@ const App = () => {
 				</RequireAuth>}
 			/>	
 
+
+
+		<Route
+				path="/comments/:topicId/:commentId"
+				element={
+					<RequireAuth user={user}>
+						<ShowTopic msgAlert={msgAlert} user={user}/>
+					</RequireAuth>
+				}
+			/>
+
+			 {/* <Route
+				path="/comments/:courseId/:reviewId/:reviewId"
+				element={
+					<RequireAuth user={user}>
+						<ShowCourse msgAlert={msgAlert} user={user}/>
+					</RequireAuth>
+				}
+			/>  */}
+
+			<Route
+				path="/comments/:id/"
+				element={
+					<RequireAuth user={user}>
+						<GiveCommentModal msgAlert={msgAlert} user={user}/>
+					</RequireAuth>
+				}
+			/>
 				</Routes>
 				{msgAlerts.map((msgAlert) => (
 					<AutoDismissAlert
