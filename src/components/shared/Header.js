@@ -40,9 +40,9 @@ const unauthenticatedOptions = (
 const alwaysOptions = (
 	<>		
 		<Nav.Link>
-			<Link to='/' style={linkStyle}>
+			{/* <Link to='/' style={linkStyle}>
 				Home
-			</Link>
+			</Link> */}
 		</Nav.Link>
 
 		<DropdownButton  style={categoryLinks} id="dropdown-basic-button-2" title="Discussion Fourm" variant='outline-light'> 
@@ -70,7 +70,9 @@ const Header = ({ user }) => (
             </Link>
         </Navbar.Brand>
 		<DropdownButton id="dropdown-basic-button-2" title="Explore" variant='outline-light'>
-			<Dropdown.Item><Link to='' style={categoryLinks}> Currently Playing </Link></Dropdown.Item>   
+			<Dropdown.Item><Link to='' style={categoryLinks}> Currently Playing </Link></Dropdown.Item>  
+			<Dropdown.Item><Link to='/popular' style={categoryLinks}> New and Upcoming Movies </Link></Dropdown.Item>
+			<Dropdown.Item><Link to='/toprated' style={categoryLinks}> Top Rated Movies of All time </Link></Dropdown.Item>   
 		</DropdownButton>
 		<Navbar.Toggle aria-controls='basic-navbar-nav' />
 		<Navbar.Collapse id='basic-navbar-nav'>

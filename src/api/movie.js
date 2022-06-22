@@ -27,4 +27,15 @@ export const getUpcoming = () => {
 }
 
 
+export const getTopRated = () => {
+    const searchUrl = 
+    `https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=1`
+    const config = {
+        method: 'get',
+        url:searchUrl
+    }
+    return axios(config)
+}
+
+
 

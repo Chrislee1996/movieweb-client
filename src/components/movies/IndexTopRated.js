@@ -1,5 +1,5 @@
 import React, {useState, useEffect } from 'react'
-import { getMovies } from '../../api/movie'
+import { getTopRated } from '../../api/movie'
 import { Card,Col,Row, ListGroup} from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import background from '../images/background.png'
@@ -11,15 +11,15 @@ const cardContainerLayout = {
 }
 
 
-const IndexMovies = (props) => {
+const IndexToprated = (props) => {
     const [contents, setContent] = useState([])
-    const [numOfPages, setNumofPages] = useState()
+    // const [numOfPages, setNumofPages] = useState()
     const [updated, setUpdated] = useState(false)
 
 
         useEffect(() => {
             const fetchData = async () => {
-                getMovies()
+                getTopRated()
                 .then((res) => {
                     setContent(res.data.results)
                     console.log(res.data.results)
@@ -33,7 +33,7 @@ const IndexMovies = (props) => {
     }
 
     let movieCards
-    console.log(contents,'content')
+    console.log(contents,'upcoming content')
 
     if (contents.length > 0) {
         movieCards = contents.map((content) => (
@@ -55,7 +55,7 @@ const IndexMovies = (props) => {
     return (
         <div>
         <div style={{ backgroundRepeat:'no-repeat', backgroundSize:'cover' ,backgroundImage: `url(${background})`}} className="text-info" >
-            <h3 class='text-center text-info'>Popular Movies now in theaters {contents.date}</h3>
+            <h3 class='text-center text-info'>New and Upcoming Movies {contents.date}</h3>
             <div style={cardContainerLayout}>
                 {movieCards}
             </div>  
@@ -64,4 +64,4 @@ const IndexMovies = (props) => {
     )
 }
 
-export default IndexMovies  
+export default IndexToprated  

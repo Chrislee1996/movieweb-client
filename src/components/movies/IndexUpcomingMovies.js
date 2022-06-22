@@ -3,6 +3,7 @@ import { getUpcoming } from '../../api/movie'
 import { Card,Col,Row, ListGroup} from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import background from '../images/background.png'
+import Moment from 'react-moment'
 
 const cardContainerLayout = {
     display: 'flex',

@@ -21,6 +21,7 @@ import CreateTopic from './components/topics/CreateTopic'
 
 //movies
 import IndexUpcomingMovies from './components/movies/IndexUpcomingMovies'
+import IndexTopRated from './components/movies/IndexTopRated'
 
 //comments
 import GiveCommentModal from './components/comments/GiveComment'
@@ -88,6 +89,12 @@ const App = () => {
 				path='/popular'
 				element={
 					<IndexUpcomingMovies msgAlert={msgAlert} user={user} />}
+			/>
+
+			<Route
+				path='/toprated'
+				element={
+					<IndexTopRated msgAlert={msgAlert} user={user} />}
 			/>
 
 			<Route
