@@ -4,6 +4,7 @@ import env from 'react-dotenv'
 
 
 export const getMovies = (page) => {
+    console.log('testtttttt123123')
     const searchUrl = 
     `https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=${page}`
     const config = {
